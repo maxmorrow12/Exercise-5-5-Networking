@@ -42,6 +42,9 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	rpc("_set_position", global_position)
+	rpc("_set_rotation", rotation.y)
 
 func die():
+	rpc("_die")
 	queue_free()
